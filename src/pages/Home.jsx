@@ -66,7 +66,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-gray-900">Comment ça marche ?</h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <div className="bg-gray-50 p-8 rounded-2xl text-center">
               <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-700 mx-auto mb-6">
                 <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,24 +77,14 @@ export default function Home() {
               <p className="text-gray-600">Toutes les offres présentées sont testées et approuvées. Nous sélectionnons uniquement les parrainages 100% vérifiés et sécurisés.</p>
             </div>
             
-            <div className="bg-gray-50 p-8 rounded-2xl text-center">
-              <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center text-gray-700 mx-auto mb-6">
+            <div className="bg-emerald-50 p-8 rounded-2xl text-center border border-emerald-100">
+              <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center text-emerald-600 mx-auto mb-6">
                 <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Simple et rapide</h3>
-              <p className="text-gray-600">Inscrivez-vous via nos liens ou utilisez nos codes lors de votre inscription. Quelques minutes suffisent.</p>
-            </div>
-            
-            <div className="bg-emerald-50 p-8 rounded-2xl text-center border border-emerald-100">
-              <div className="w-16 h-16 bg-white shadow-sm rounded-full flex items-center justify-center text-emerald-600 mx-auto mb-6">
-                <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-emerald-900 mb-3">Gagnez de l'argent</h3>
-              <p className="text-emerald-800">Recevez votre prime de parrainage directement sur votre compte bancaire ou sous forme de bons d'achat.</p>
+              <h3 className="text-xl font-bold text-emerald-900 mb-3">Simple et rapide</h3>
+              <p className="text-emerald-800">Inscrivez-vous via nos liens ou utilisez nos codes, suivez quelques étapes et gagnez de l'argent simplement.</p>
             </div>
           </div>
         </div>
