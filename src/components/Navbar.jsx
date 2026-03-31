@@ -11,7 +11,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Accueil', path: '/' },
     { name: 'Banque', path: '/banque' },
-    { name: 'Crypto', path: '/crypto' },
+    { name: 'Paris Sportifs', path: '/paris-sportifs' },
     { name: 'Services', path: '/services' },
     { name: 'Cashback', path: '/cashback' },
     { name: 'Blog', path: '/blog' }

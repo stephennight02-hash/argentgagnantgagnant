@@ -2,25 +2,25 @@ export default function Blog() {
   const articles = [
     {
       title: "Comment optimiser ses gains avec le cashback ?",
-      date: "15 Octobre 2023",
+      date: "15 Janvier 2026",
       excerpt: "Découvrez nos meilleures astuces pour maximiser vos retours sur achats quotidiens grâce aux plateformes de cashback."
     },
     {
       title: "Le guide du débutant pour choisir sa banque en ligne",
-      date: "02 Novembre 2023",
+      date: "02 Février 2026",
       excerpt: "Frais réduits, primes de parrainage intéressantes : comment faire le tri parmi toutes les offres du marché ?"
     },
     {
-      title: "Parrainage Crypto : les plateformes les plus généreuses",
-      date: "15 Novembre 2023",
-      excerpt: "Un comparatif détaillé des bonus d'inscription offerts par les leaders du marché des crypto-monnaies."
+      title: "Paris sportifs : les meilleurs bonus de bienvenue",
+      date: "10 Mars 2026",
+      excerpt: "Comparatif détaillé des offres de parrainage sur les sites de paris sportifs les plus populaires en France."
     }
   ];
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="mb-12">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">📝 Conseils & Astuces</h1>
+        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Conseils & Astuces</h1>
         <p className="text-xl text-gray-600">
           Retrouvez nos derniers articles pour vous aider à mieux gérer votre argent et optimiser vos primes de parrainage.
         </p>

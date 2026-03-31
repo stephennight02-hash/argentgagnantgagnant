@@ -161,7 +161,7 @@ export default function Home() {
           <p className="text-xl text-gray-600">Sélectionnées avec soin, classées par rentabilité</p>
         </div>
 
-        {['banque', 'crypto', 'cashback', 'services', 'revenus_passifs'].map((category) => {
+        {['banque', 'paris', 'cashback', 'services', 'revenus_passifs'].map((category) => {
           const categoryOffers = offers
             .filter(o => o.category === category)
             .sort((a, b) => b.rewardValue - a.rewardValue);
@@ -170,10 +170,18 @@ export default function Home() {
 
           const categoryNames = {
             'banque': 'Banque & Finance',
-            'crypto': 'Crypto-monnaies',
+            'paris': 'Paris Sportifs',
             'cashback': 'Cashback & Shopping',
             'services': 'Services (VPN, Assurance, etc.)',
             'revenus_passifs': 'Revenus Passifs'
+          };
+
+          const categoryLinks = {
+            'banque': '/banque',
+            'paris': '/paris-sportifs',
+            'cashback': '/cashback',
+            'services': '/services',
+            'revenus_passifs': '/services'
           };
 
           return (
@@ -182,7 +190,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-gray-900">
                   {categoryNames[category]}
                 </h3>
-                <Link to={`/${category === 'revenus_passifs' ? 'services' : category}`} className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm hidden sm:block">
+                <Link to={categoryLinks[category]} className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm hidden sm:block">
                   Voir tout →
                 </Link>
               </div>
@@ -192,7 +200,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-6 text-center sm:hidden">
-                <Link to={`/${category === 'revenus_passifs' ? 'services' : category}`} className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
+                <Link to={categoryLinks[category]} className="text-emerald-600 hover:text-emerald-700 font-semibold text-sm">
                   Voir plus d'offres...
                 </Link>
               </div>

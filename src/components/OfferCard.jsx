@@ -20,7 +20,7 @@ export default function OfferCard({ offer }) {
     >
       {featured && (
         <div className="absolute -top-3 left-4 bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded shadow-sm">
-          🔥 Meilleure offre
+          Meilleure offre
         </div>
       )}
 
@@ -41,7 +41,14 @@ export default function OfferCard({ offer }) {
             {name}
           </h3>
           <span className="text-sm text-gray-500 uppercase tracking-wide">
-            {category}
+            {{
+              banque: 'Banque',
+              paris: 'Paris Sportifs',
+              cashback: 'Cashback',
+              shopping: 'Shopping',
+              services: 'Services',
+              revenus_passifs: 'Revenus Passifs'
+            }[category] || category}
           </span>
         </div>
       </div>
@@ -65,7 +72,7 @@ export default function OfferCard({ offer }) {
         <a
           href={link}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow sponsored"
           className="block w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-4 rounded transition-colors text-center text-lg shadow-sm"
         >
           Profiter de l'offre

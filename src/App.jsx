@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Banque from './pages/Banque';
-import Crypto from './pages/Crypto';
+import ParisSportifs from './pages/ParisSportifs';
 import Services from './pages/Services';
 import Cashback from './pages/Cashback';
 import Blog from './pages/Blog';
@@ -19,12 +19,14 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/banque" element={<Banque />} />
-            <Route path="/crypto" element={<Crypto />} />
+            <Route path="/paris-sportifs" element={<ParisSportifs />} />
             <Route path="/services" element={<Services />} />
             <Route path="/cashback" element={<Cashback />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/mentions-legales" element={<LegalNotice />} />
             <Route path="/confidentialite" element={<PrivacyPolicy />} />
+            {/* Redirect old crypto page to banque */}
+            <Route path="/crypto" element={<Navigate to="/banque" replace />} />
           </Routes>
         </main>
         <Footer />
