@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { getOfferLogo } from '../utils/getLogo';
 
 export default function OfferCard({ offer }) {
   const {
@@ -6,7 +7,6 @@ export default function OfferCard({ offer }) {
     category,
     reward,
     link,
-    domain,
     code,
     featured,
   } = offer;
@@ -27,7 +27,7 @@ export default function OfferCard({ offer }) {
       <div className="flex items-center gap-4 mb-4">
         <div className="w-14 h-14 rounded border border-gray-100 bg-white shrink-0 p-1 flex items-center justify-center overflow-hidden">
           <img
-            src={`https://logo.clearbit.com/${domain}?size=100`}
+            src={getOfferLogo(offer)}
             alt={`Logo ${name}`}
             className="w-full h-full object-contain"
             onError={(e) => {
