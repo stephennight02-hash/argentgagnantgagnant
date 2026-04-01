@@ -10,6 +10,8 @@ import Blog from './pages/Blog';
 import LegalNotice from './pages/LegalNotice';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
+import AllOffers from './pages/AllOffers';
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/offres" element={<AllOffers />} />
             <Route path="/banque" element={<Banque />} />
             <Route path="/paris-sportifs" element={<ParisSportifs />} />
             <Route path="/services" element={<Services />} />

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { offers } from '../data/offers';
 import OfferCard from '../components/OfferCard';
+import ContactForm from '../components/ContactForm';
 
 export default function Home() {
   return (
@@ -41,10 +42,10 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
              <div className="flex items-center gap-3">
                 <div className="bg-red-600 text-white px-4 py-2 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
-                <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight">🔥 TOP 8 DES OFFRES LES PLUS RENTABLES</div>
+                <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight">TOP 8 DES OFFRES LES PLUS RENTABLES</div>
              </div>
              <Link 
-              to="/banque" 
+              to="/offres" 
               className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-black transition-all hover:scale-105"
             >
               Voir tout le catalogue →
@@ -92,9 +93,17 @@ export default function Home() {
             'revenus_passifs': '/services'
           };
 
+          const categoryDescriptions = {
+            'banque': 'Les meilleures offres pour ouvrir un compte gratuit et encaisser une prime.',
+            'paris': 'Multipliez vos gains avec les bonus de bienvenue des bookmakers.',
+            'cashback': 'Faites-vous rembourser une partie de vos achats en ligne.',
+            'services': 'Des abonnements premium et services utiles avec des réductions exclusives.',
+            'revenus_passifs': 'Générez de l\'argent sans rien faire en partageant votre bande passante inutilisée.'
+          };
+
           return (
             <div key={category} className="mb-20">
-              <div className="flex items-center justify-between mb-8 border-b-2 border-gray-100 pb-6">
+              <div className="flex items-center justify-between mb-2">
                 <h3 className="text-2xl md:text-3xl font-black text-gray-900 flex items-center gap-3">
                   <span className="w-2 h-8 bg-emerald-500 rounded-full"></span>
                   {categoryNames[category]}
@@ -103,6 +112,10 @@ export default function Home() {
                   Voir tout →
                 </Link>
               </div>
+              <p className="text-gray-500 font-medium mb-6 ml-5">
+                {categoryDescriptions[category]}
+              </p>
+              <div className="border-t-2 border-gray-100 mb-6"></div>
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {categoryOffers.slice(0, 4).map((offer, index) => (
                   <OfferCard key={`${category}-${index}`} offer={offer} />
@@ -121,7 +134,7 @@ export default function Home() {
               <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Pourquoi nous ?</h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600">✅</div>
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600 font-black">✓</div>
                   <div>
                     <h4 className="font-bold text-gray-900">100% Vérifié</h4>
                     <p className="text-gray-600 text-sm">Chaque offre est testée manuellement par notre équipe.</p>
@@ -143,7 +156,7 @@ export default function Home() {
                   <p className="text-gray-700 italic mb-6 relative z-10">"J'ai gagné 160€ en 10 minutes avec BoursoBank. Le site est clair et les liens fonctionnent."</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-700 text-xs">MD</div>
-                    <div className="font-black text-gray-900 text-sm italic">Marc D. ✅</div>
+                    <div className="font-black text-gray-900 text-sm italic">Marc D. ✓</div>
                   </div>
                </div>
                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
@@ -151,7 +164,7 @@ export default function Home() {
                   <p className="text-gray-700 italic mb-6 relative z-10">"Enfin un site qui ne ment pas sur les primes. Déjà 400€ encaissés ce mois-ci !"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-700 text-xs">SL</div>
-                    <div className="font-black text-gray-900 text-sm italic">Sophie L. ✅</div>
+                    <div className="font-black text-gray-900 text-sm italic">Sophie L. ✓</div>
                   </div>
                </div>
             </div>
@@ -184,6 +197,11 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* 6. CONTACT SECTION */}
+      <section className="bg-gray-50 border-t border-gray-200">
+        <ContactForm />
       </section>
     </div>
   );
