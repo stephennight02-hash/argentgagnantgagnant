@@ -17,9 +17,28 @@
 
 @layer utilities {
   .section-padding {
-    @apply py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-24 px-4 sm:px-6 lg:px-8;
   }
   .container-max {
-    @apply max-w-6xl mx-auto;
+    @apply max-w-7xl mx-auto;
   }
+  .bg-mesh-emerald {
+    background-color: #059669;
+    background-image: 
+      radial-gradient(at 0% 0%, #10b981 0px, transparent 50%),
+      radial-gradient(at 50% 0%, #34d399 0px, transparent 50%),
+      radial-gradient(at 100% 0%, #059669 0px, transparent 50%),
+      radial-gradient(at 0% 100%, #10b981 0px, transparent 50%),
+      radial-gradient(at 50% 100%, #064e3b 0px, transparent 50%),
+      radial-gradient(at 100% 100%, #10b981 0px, transparent 50%);
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
 }
