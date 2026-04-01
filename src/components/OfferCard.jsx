@@ -22,13 +22,16 @@ export default function OfferCard({ offer }) {
           : "border-gray-100 shadow-sm"
       )}
     >
-      {/* Status Badges */}
-      <div className="absolute -top-3 right-4 flex gap-2">
+      {/* Status Badges & Checkmark */}
+      <div className="absolute -top-3 right-4 flex items-center gap-2">
         {featured && (
           <div className="bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg uppercase tracking-tighter animate-pulse border border-white/20">
             🔥 TOP RENTABLE
           </div>
         )}
+        <div className="bg-white/90 backdrop-blur-sm shadow-sm border border-emerald-100 w-8 h-8 rounded-full flex items-center justify-center text-sm">
+          ✅
+        </div>
       </div>
 
       <div className="flex items-center gap-4 mb-5">
@@ -45,12 +48,12 @@ export default function OfferCard({ offer }) {
         </div>
         <div className="min-w-0">
           <h3 className="text-lg font-black text-gray-900 leading-tight group-hover:text-emerald-600 transition-colors flex items-center gap-1.5 truncate">
-            {name} <span className="text-emerald-500">✅</span>
+            {name} <span className="text-emerald-500 opacity-60">✅</span>
           </h3>
           <span className="text-[11px] font-bold text-gray-400 uppercase tracking-[0.2em]">
             {{
               banque: 'Banque',
-              paris: 'Paris',
+              paris: 'Paris Sportifs',
               cashback: 'Cashback',
               shopping: 'Shopping',
               services: 'Services',

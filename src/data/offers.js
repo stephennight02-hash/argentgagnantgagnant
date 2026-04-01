@@ -264,21 +264,6 @@ export const offers = [
     superParrainLogo: "https://www.super-parrain.com/images/offers/2015/04/24/airbnb-5acd27de5da84.png",
     code: null,
     conditions: null,
-    highlight: false,
-    featured: false
-  },
-  {
-    name: "Trade Republic",
-    category: "banque",
-    reward: "50€",
-    rewardValue: 50,
-    link: "https://refnocode.trade.re/fgv6l0ll",
-    domain: "traderepublic.com",
-    favicon: "https://www.google.com/s2/favicons?sz=256&domain_url=traderepublic.com",
-    superParrainLogo: "https://www.super-parrain.com/images/offers/2021/11/21/trade-republic-619a9cc55b9ea.png",
-    code: null,
-    conditions: null,
-    highlight: false,
     featured: false
   },
   {
@@ -779,19 +764,6 @@ export const offers = [
     domain: "getgrass.io",
     favicon: "https://www.google.com/s2/favicons?sz=256&domain_url=getgrass.io",
     description: "Monétisez votre bande passante inutilisée avec Grass et gagnez des points.",
-    code: null,
-    conditions: null,
-    highlight: true,
-    featured: true
-  },
-  {
-    name: "Gemini",
-    category: "banque",
-    reward: "$110",
-    rewardValue: 110,
-    link: "https://exchange.gemini.com/register?referral=9zvkk6dt7&type=referral",
-    domain: "gemini.com",
-    favicon: "https://www.google.com/s2/favicons?sz=256&domain_url=gemini.com",
     code: null,
     conditions: null,
     highlight: true,
