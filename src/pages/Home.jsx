@@ -44,12 +44,6 @@ export default function Home() {
                 <div className="bg-red-600 text-white px-4 py-2 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
                 <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight">TOP 8 DES OFFRES LES PLUS RENTABLES</div>
              </div>
-             <Link 
-              to="/offres" 
-              className="bg-gray-900 text-white px-8 py-3 rounded-xl font-bold hover:bg-black transition-all hover:scale-105"
-            >
-              Voir tout le catalogue →
-            </Link>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">

@@ -11,6 +11,8 @@ import LegalNotice from './pages/LegalNotice';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 
 import AllOffers from './pages/AllOffers';
+import ChatWidget from './components/ChatWidget';
+import AdminChat from './pages/AdminChat';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/admin-support-prive" element={<AdminChat />} />
             <Route path="/offres" element={<AllOffers />} />
             <Route path="/banque" element={<Banque />} />
             <Route path="/paris-sportifs" element={<ParisSportifs />} />
@@ -33,6 +36,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <ChatWidget />
       </div>
     </BrowserRouter>
   );

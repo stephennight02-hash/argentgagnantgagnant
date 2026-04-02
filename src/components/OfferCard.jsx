@@ -94,10 +94,10 @@ export default function OfferCard({ offer }) {
             "group/btn flex items-center justify-center gap-2 w-full font-black py-4 px-6 rounded-2xl transition-all duration-300 text-center text-base shadow-xl",
             featured 
               ? "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-200 hover:shadow-emerald-300" 
-              : "bg-gray-900 hover:bg-black text-white shadow-gray-200 hover:shadow-gray-300"
+              : "bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-100 hover:shadow-emerald-200"
           )}
         >
-          <span>Profiter</span>
+          <span>En savoir plus</span>
           <svg 
             className="w-5 h-5 transition-transform duration-500 group-hover/btn:translate-x-2" 
             fill="none" 
