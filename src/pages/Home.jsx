@@ -39,7 +39,7 @@ export default function Home() {
       {/* 2. THE MONEY WALL (TOP 8) */}
       <section id="money-wall" className="pt-8 md:pt-10 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
+          <div className="flex items-center mb-10">
              <div className="flex items-center gap-3">
                 <div className="bg-red-600 text-white px-4 py-2 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
                 <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight">TOP 8 DES OFFRES LES PLUS RENTABLES</div>

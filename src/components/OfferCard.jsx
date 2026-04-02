@@ -97,7 +97,7 @@ export default function OfferCard({ offer }) {
               : "bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-100 hover:shadow-emerald-200"
           )}
         >
-          <span>En savoir plus</span>
+          <span>Profiter</span>
           <svg 
             className="w-5 h-5 transition-transform duration-500 group-hover/btn:translate-x-2" 
             fill="none" 
