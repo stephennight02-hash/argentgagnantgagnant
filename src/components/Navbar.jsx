@@ -22,8 +22,10 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold text-gray-900 flex items-center gap-2 hover:text-emerald-600 transition-colors">
-              <img src="/Money_Face_Emoji.png" alt="Logo Parrainage" className="w-8 h-8 object-contain" /> Parrainage
+            <Link to="/" className="group flex items-center gap-0.5">
+              <span className="text-2xl font-black tracking-tighter text-indigo-600 group-hover:text-indigo-700 transition-colors">MONEY</span>
+              <span className="text-2xl font-black tracking-tighter text-gray-900 group-hover:text-indigo-600 transition-colors">GAGNANT</span>
+              <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full ml-1 mt-auto mb-1.5 animate-pulse"></div>
             </Link>
           </div>
 
@@ -34,10 +36,10 @@ export default function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={clsx(
-                  "px-3 py-2 rounded-md font-medium transition-colors",
+                  "px-3 py-2 rounded-md font-medium transition-all duration-300",
                   isActive(link.path) 
-                    ? "text-emerald-600 bg-emerald-50" 
-                    : "text-gray-700 hover:text-emerald-600 hover:bg-gray-50"
+                    ? "text-indigo-600 bg-indigo-50/50" 
+                    : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50"
                 )}
               >
                 {link.name}
@@ -59,7 +61,7 @@ export default function Navbar() {
               </a>
               <Link 
                 to="/offres" 
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-5 py-2.5 rounded-xl transition-all shadow-sm shadow-emerald-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs uppercase tracking-widest px-6 py-3 rounded-xl transition-all shadow-lg shadow-indigo-100 hover:shadow-indigo-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Toutes les offres
               </Link>
@@ -71,7 +73,7 @@ export default function Navbar() {
             <button 
               onClick={() => setIsOpen(!isOpen)}
               type="button" 
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500" 
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" 
               aria-controls="mobile-menu" 
               aria-expanded={isOpen}
             >
@@ -123,7 +125,7 @@ export default function Navbar() {
             </a>
             <Link 
               to="/offres" 
-              className="block w-full text-center bg-emerald-500 hover:bg-emerald-600 text-white font-medium px-5 py-3 rounded-xl transition-colors shadow-sm"
+              className="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-black uppercase tracking-widest text-xs px-5 py-4 rounded-xl transition-all shadow-lg shadow-indigo-100"
               onClick={() => setIsOpen(false)}
             >
               Voir les offres

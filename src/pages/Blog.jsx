@@ -28,14 +28,18 @@ export default function Blog() {
 
       <div className="space-y-8">
         {articles.map((article, index) => (
-          <article key={index} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-            <div className="text-sm text-emerald-600 font-semibold mb-2">{article.date}</div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-3 cursor-pointer hover:text-emerald-700 transition-colors">
+          <article key={index} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span>
+              <div className="text-[10px] text-gray-400 font-black uppercase tracking-widest">{article.date}</div>
+            </div>
+            <h2 className="text-2xl font-black text-gray-900 mb-3 cursor-pointer group-hover:text-indigo-600 transition-colors tracking-tight uppercase">
               {article.title}
             </h2>
-            <p className="text-gray-600 mb-4">{article.excerpt}</p>
-            <button className="text-emerald-600 font-medium hover:text-emerald-800 transition-colors">
-              Lire la suite →
+            <p className="text-gray-500 font-medium leading-relaxed mb-6">{article.excerpt}</p>
+            <button className="flex items-center gap-2 text-indigo-600 font-black text-xs uppercase tracking-widest hover:text-indigo-700 transition-colors group/btn">
+              Lire l'article
+              <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
             </button>
           </article>
         ))}

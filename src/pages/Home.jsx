@@ -7,28 +7,28 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* 1. COMPACT MODERN HERO */}
-      <section className="relative overflow-hidden bg-mesh-emerald py-12 md:py-16 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-mesh-premium py-16 md:py-20 px-4 sm:px-6 lg:px-8">
         {/* Abstract decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="animate-float backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-6 md:p-10 shadow-2xl text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-white uppercase leading-none">
-              Encaissez vos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-white italic">Primes Cash</span> 💸
+            <h1 className="text-4xl md:text-7xl font-black tracking-tight mb-6 text-white uppercase leading-none">
+              Encaissez vos <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200 italic">Primes Cash</span> 💸
             </h1>
-            <p className="text-lg md:text-xl font-bold text-emerald-50/90 mb-6 max-w-xl mx-auto leading-tight">
+            <p className="text-lg md:text-xl font-bold text-indigo-50/90 mb-8 max-w-2xl mx-auto leading-tight">
               La sélection d'élite des parrainages les plus lucratifs du Web. 
-              <span className="block mt-1 font-black text-white">Vérifié. Immédiat. Garanti.</span>
+              <span className="block mt-2 font-black text-white px-4 py-1 bg-white/10 inline-block rounded-lg backdrop-blur-sm">Vérifié • Immédiat • Garanti</span>
             </p>
             
             <div className="flex flex-wrap justify-center gap-4">
-               <div className="flex items-center gap-2 bg-emerald-900/40 px-4 py-2 rounded-xl border border-white/10 text-xs font-black text-white">
+               <div className="flex items-center gap-2 bg-indigo-900/40 px-5 py-2.5 rounded-xl border border-white/10 text-xs font-black text-white uppercase tracking-widest">
                   💰 +2,500€ À SAISIR
                </div>
-               <div className="flex items-center gap-2 bg-emerald-400/20 px-4 py-2 rounded-xl border border-white/10 backdrop-blur-sm text-xs font-black text-white">
+               <div className="flex items-center gap-2 bg-white/10 px-5 py-2.5 rounded-xl border border-white/10 backdrop-blur-md text-xs font-black text-white uppercase tracking-widest">
                   🛡️ 100% SÉCURISÉ
                </div>
             </div>
@@ -61,7 +61,7 @@ export default function Home() {
       <section id="offres" className="py-16 px-4 sm:px-6 lg:px-8 bg-white max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tighter uppercase">Parcourez par catégorie</h2>
-          <div className="w-24 h-2 bg-emerald-500 mx-auto rounded-full"></div>
+          <div className="w-24 h-2 bg-indigo-500 mx-auto rounded-full"></div>
         </div>
 
         {['banque', 'paris', 'cashback', 'services', 'revenus_passifs'].map((category) => {
@@ -99,10 +99,10 @@ export default function Home() {
             <div key={category} className="mb-20">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-2xl md:text-3xl font-black text-gray-900 flex items-center gap-3">
-                  <span className="w-2 h-8 bg-emerald-500 rounded-full"></span>
+                  <span className="w-2 h-8 bg-indigo-500 rounded-full"></span>
                   {categoryNames[category]}
                 </h3>
-                <Link to={categoryLinks[category]} className="text-emerald-600 hover:text-emerald-700 font-black text-sm uppercase tracking-widest bg-emerald-50 px-4 py-2 rounded-lg transition-colors">
+                <Link to={categoryLinks[category]} className="text-indigo-600 hover:text-indigo-700 font-black text-xs uppercase tracking-widest bg-indigo-50 px-4 py-2 rounded-lg transition-all duration-300">
                   Voir tout →
                 </Link>
               </div>
@@ -128,14 +128,14 @@ export default function Home() {
               <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tighter">Pourquoi nous ?</h2>
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600 font-black">✓</div>
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-indigo-600 font-black">✓</div>
                   <div>
                     <h4 className="font-bold text-gray-900">100% Vérifié</h4>
                     <p className="text-gray-600 text-sm">Chaque offre est testée manuellement par notre équipe.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600">💳</div>
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-indigo-600">💳</div>
                   <div>
                     <h4 className="font-bold text-gray-900">Zéro Frais</h4>
                     <p className="text-gray-600 text-sm">Notre service est et restera toujours gratuit.</p>
@@ -145,14 +145,14 @@ export default function Home() {
             </div>
             
             <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
-                  <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl font-black italic text-emerald-500">“</div>
-                  <p className="text-gray-700 italic mb-6 relative z-10">"J'ai gagné 160€ en 10 minutes avec BoursoBank. Le site est clair et les liens fonctionnent."</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center font-bold text-emerald-700 text-xs">MD</div>
-                    <div className="font-black text-gray-900 text-sm italic">Marc D. ✓</div>
-                  </div>
-               </div>
+                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
+                   <div className="absolute top-0 right-0 p-4 opacity-5 text-6xl font-black italic text-indigo-500">“</div>
+                   <p className="text-gray-700 italic mb-6 relative z-10 font-medium leading-relaxed">"J'ai gagné 160€ en 10 minutes avec BoursoBank. Le site est clair et les liens fonctionnent."</p>
+                   <div className="flex items-center gap-3">
+                     <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center font-black text-indigo-700 text-xs shadow-inner">MD</div>
+                     <div className="font-black text-gray-900 text-sm italic">Marc D. ✓</div>
+                   </div>
+                </div>
                <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-10 text-6xl font-black italic text-emerald-500">“</div>
                   <p className="text-gray-700 italic mb-6 relative z-10">"Enfin un site qui ne ment pas sur les primes. Déjà 400€ encaissés ce mois-ci !"</p>
@@ -179,10 +179,10 @@ export default function Home() {
               { q: "Comment gagnez-vous de l'argent ?", a: "Nous touchons parfois une commission de la part des banques pour leur avoir apporté un nouveau client, mais cela ne change rien à votre prime." },
               { q: "Les offres sont-elles sûres ?", a: "Oui, nous ne sélectionnons que des partenaires régulés par l'ACPR (Banque de France) ou des autorités financières reconnues." }
             ].map((faq, i) => (
-              <details key={i} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group cursor-pointer hover:border-emerald-200 transition-colors">
+              <details key={i} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group cursor-pointer hover:border-indigo-200 transition-all duration-300">
                 <summary className="font-bold text-gray-900 list-none flex justify-between items-center text-lg">
                   {faq.q}
-                  <span className="text-emerald-500 group-open:rotate-45 transition-transform text-2xl font-light">+</span>
+                  <span className="text-indigo-500 group-open:rotate-45 transition-transform text-2xl font-light">+</span>
                 </summary>
                 <p className="mt-4 text-gray-600 leading-relaxed border-t border-gray-200 pt-4 cursor-text font-medium">
                   {faq.a}
