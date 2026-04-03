@@ -90,42 +90,6 @@ export default function ChatWidget() {
     }
   }, [messages]);
 
-  const sendDiscordNotification = async (message, id) => {
-    try {
-      await fetch(DISCORD_WEBHOOK_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          content: "@rescuetime 📬 **Nouveau message d'un client !**",
-          embeds: [
-            {
-              title: "Nouveau message sur le Chat",
-              description: message,
-              color: 0x4f46e5, // Indigo 600
-              fields: [
-                {
-                  name: "ID Visiteur",
-                  value: `\`${id}\``,
-                  inline: true
-                },
-                {
-                  name: "Panel Admin",
-                  value: "[Accéder aux conversations](https://parrainageargentgagnant.fr/admin-chat)",
-                  inline: true
-                }
-              ],
-              timestamp: new Date().toISOString()
-            }
-          ]
-        })
-      });
-    } catch (error) {
-      console.error('Error sending Discord notification:', error);
-    }
-  };
-
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!newMessage.trim() || !visitorId) return;
@@ -155,8 +119,20 @@ export default function ChatWidget() {
         isRead: false
       });
 
-      // 3. Discord Notification
-      sendDiscordNotification(text, visitorId);
+      // 3. Notify Discord
+      try {
+        await fetch(DISCORD_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            content: `@rescuetime 📨 **Nouveau message d'un client !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://parrainageargentgagnant.fr/admin-chat)`,
+            username: "Support MoneyGagnant",
+            avatar_url: "https://parrainageargentgagnant.fr/Money_Face_Emoji.png"
+          })
+        });
+      } catch (err) {
+        console.error('Discord Webhook Error:', err);
+      }
 
     } catch (err) {
       console.error('FIREBASE SEND ERROR:', err.code, err.message);
@@ -172,13 +148,13 @@ export default function ChatWidget() {
       )}>
         {/* Header */}
         <div className="bg-white border-b border-gray-100 p-5 flex items-center gap-3">
-          <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-black shrink-0 shadow-inner">
+          <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-black shrink-0">
             MG
           </div>
           <div className="text-left">
             <h3 className="text-sm font-black text-gray-900 leading-tight">Support MoneyGagnant</h3>
             <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 bg-indigo-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(79,70,229,0.5)]"></span>
+              <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">En ligne</span>
             </div>
           </div>
@@ -215,7 +191,7 @@ export default function ChatWidget() {
                     className={clsx(
                       "max-w-[85%] px-4 py-2.5 text-[15px] leading-snug shadow-sm transition-all duration-300",
                       isUser 
-                        ? "bg-indigo-600 text-white font-medium" 
+                        ? "bg-emerald-500 text-white font-medium" 
                         : "bg-gray-100 text-gray-800 font-medium",
                       isUser 
                         ? (isLastInGroup ? "rounded-2xl rounded-tr-sm" : "rounded-2xl")
@@ -243,12 +219,12 @@ export default function ChatWidget() {
               placeholder="Votre message..."
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-              className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-3 text-sm font-bold focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all outline-none placeholder:text-gray-400"
+              className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-3 text-sm font-bold focus:bg-white focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none placeholder:text-gray-400"
             />
             <button 
               type="submit"
               disabled={!newMessage.trim()}
-              className="absolute right-1.5 p-2 text-indigo-500 hover:text-indigo-600 disabled:opacity-30 disabled:grayscale transition-all"
+              className="absolute right-1.5 p-2 text-emerald-500 hover:text-emerald-600 disabled:opacity-30 disabled:grayscale transition-all"
             >
               <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -267,7 +243,7 @@ export default function ChatWidget() {
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
           "w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 hover:scale-110 relative",
-          isOpen ? "bg-gray-900 rotate-90" : "bg-indigo-600"
+          isOpen ? "bg-gray-900 rotate-90" : "bg-emerald-600"
         )}
       >
         {isOpen ? (
@@ -280,7 +256,7 @@ export default function ChatWidget() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
             {unreadCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-indigo-600 animate-bounce">
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-emerald-600 animate-bounce">
                 {unreadCount}
               </span>
             )}

@@ -10,6 +10,9 @@ export const offers = [
     description: "Ouvrez un compte chez Monabanq et profitez d'une prime de bienvenue allant jusqu'à 240€.",
     code: null,
     conditions: "https://parrainage.co/offers/73427",
+    condition: "Ouverture de compte + versement initial",
+    delay: "A la validation du dossier",
+    difficulty: "Facile",
     highlight: true,
     featured: true
   },
@@ -25,6 +28,9 @@ export const offers = [
     description: "Rejoignez la banque la moins chère de France et recevez une prime exceptionnelle de parrainage.",
     code: null,
     conditions: "https://parrainage.co/404",
+    condition: "Ouverture de compte (OctoConfirm)",
+    delay: "Instantané après ouverture",
+    difficulty: "Très Facile",
     highlight: true,
     featured: true
   },
@@ -40,6 +46,9 @@ export const offers = [
     description: "Simplifiez vos finances avec Revolut et profitez d'une prime de bienvenue exclusive.",
     code: null,
     conditions: "https://parrainage.co/offers/76992",
+    condition: "Carte physique + 3 paiements de 5€",
+    delay: "7 à 14 jours",
+    difficulty: "Facile",
     highlight: true,
     featured: true
   },
@@ -70,6 +79,9 @@ export const offers = [
     description: "Profitez de la prime Fortuneo pour tout nouveau compte avec carte Gold Mastercard.",
     code: "13109282",
     conditions: "https://parrainage.co/offers/73438",
+    condition: "Ouverture de compte avec carte Gold",
+    delay: "Sous 60 jours",
+    difficulty: "Facile",
     highlight: true,
     featured: true
   },

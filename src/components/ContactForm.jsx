@@ -57,7 +57,7 @@ export default function ContactForm() {
             value={discordUsername}
             onChange={(e) => setDiscordUsername(e.target.value)}
             required
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all placeholder:text-gray-400 font-medium"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all placeholder:text-gray-400 font-medium"
           />
         </div>
         
@@ -72,14 +72,14 @@ export default function ContactForm() {
             onChange={(e) => setReason(e.target.value)}
             required
             rows={4}
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 outline-none transition-all placeholder:text-gray-400 font-medium resize-none"
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition-all placeholder:text-gray-400 font-medium resize-none"
           />
         </div>
 
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg hover:shadow-indigo-500/30 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-xl transition-all flex justify-center items-center gap-2 shadow-lg hover:shadow-emerald-500/30 disabled:opacity-70 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? 'Envoi en cours...' : 'Envoyer via Discord'}
           {status !== 'loading' && (
@@ -90,7 +90,7 @@ export default function ContactForm() {
         </button>
 
         {status === 'success' && (
-          <p className="text-indigo-600 font-bold text-center mt-4">
+          <p className="text-emerald-600 font-bold text-center mt-4">
             Message envoyé ! Nous vous contacterons sur Discord très vite.
           </p>
         )}

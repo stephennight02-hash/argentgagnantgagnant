@@ -8,9 +8,9 @@ export default function AllOffers() {
     <div className="bg-gray-50 min-h-screen pt-8 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="bg-white rounded-[2rem] p-8 md:p-12 shadow-sm border border-gray-100 mb-12 text-center">
+        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-6 uppercase tracking-tight">
-            Toutes les <span className="text-indigo-600">Offres</span>
+            Toutes les <span className="text-emerald-500">Offres</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-medium leading-relaxed">
             Parcourez l'intégralité de notre catalogue de parrainages. Des banques en ligne aux revenus passifs, trouvez les meilleurs bons plans pour gagner de l'argent.

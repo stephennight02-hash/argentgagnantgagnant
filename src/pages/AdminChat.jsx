@@ -113,15 +113,15 @@ export default function AdminChat() {
   return (
     <div className="flex h-[calc(100vh-64px)] bg-gray-50">
       {/* Sidebar - Chat List */}
-      <div className="w-[380px] bg-white border-r border-gray-100 flex flex-col shadow-xl z-20">
-        <div className="p-8 bg-indigo-950 text-white">
+      <div className="w-[380px] bg-white border-r border-gray-200 flex flex-col shadow-xl z-20">
+        <div className="p-8 bg-gray-900 text-white">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-2xl font-black uppercase tracking-tighter italic">Money Support</h2>
             <div className="flex gap-1">
-              <div className="w-2 h-2 bg-indigo-400 rounded-full animate-ping"></div>
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-ping"></div>
             </div>
           </div>
-          <p className="text-[10px] font-black text-indigo-300 uppercase tracking-[0.2em]">Dashboard en direct</p>
+          <p className="text-[10px] font-black text-emerald-400 uppercase tracking-[0.2em]">Dashboard en direct</p>
         </div>
 
         <div className="flex-1 overflow-y-auto custom-scrollbar">
@@ -139,17 +139,17 @@ export default function AdminChat() {
                 }}
                 className={clsx(
                   "w-full p-6 text-left border-b border-gray-50 transition-all hover:bg-gray-50 flex flex-col gap-2 relative group",
-                  selectedChat?.id === chat.id ? "bg-indigo-50/50" : ""
+                  selectedChat?.id === chat.id ? "bg-emerald-50/50" : ""
                 )}
               >
                 {selectedChat?.id === chat.id && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-indigo-600"></div>
+                  <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-emerald-500"></div>
                 )}
                 
                 <div className="flex justify-between items-center">
                   <span className={clsx(
                     "text-[10px] font-black uppercase tracking-widest px-2 py-0.5 rounded",
-                    chat.unreadByAdmin ? "bg-indigo-600 text-white" : "bg-gray-100 text-gray-400"
+                    chat.unreadByAdmin ? "bg-emerald-500 text-white" : "bg-gray-100 text-gray-400"
                   )}>
                     {chat.unreadByAdmin ? 'Nouveau' : 'Lu'}
                   </span>
@@ -212,12 +212,12 @@ export default function AdminChat() {
                 placeholder="Rédigez votre réponse..."
                 value={reply}
                 onChange={(e) => setReply(e.target.value)}
-                className="flex-1 bg-gray-100 border-none rounded-2xl px-6 py-4 text-base font-bold outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all shadow-sm"
+                className="flex-1 bg-gray-100 border-none rounded-2xl px-6 py-4 text-base font-bold outline-none focus:ring-4 focus:ring-emerald-500/10 transition-all shadow-sm"
               />
               <button 
                 type="submit"
                 disabled={!reply.trim()}
-                className="bg-indigo-600 text-white font-black px-8 py-4 rounded-2xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 disabled:opacity-50 uppercase tracking-widest text-xs"
+                className="bg-emerald-600 text-white font-black px-8 py-4 rounded-2xl hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200 disabled:opacity-50 uppercase tracking-widest text-xs"
               >
                 Envoyer (Entrée)
               </button>

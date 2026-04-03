@@ -2,12 +2,9 @@ import { Link } from 'react-router-dom';
 
 export default function PrivacyPolicy() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
-      <div className="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100">
-        <h1 className="text-4xl font-black text-gray-900 mb-8 border-b border-gray-100 pb-6 uppercase tracking-tighter flex items-center gap-3">
-          <span className="w-2 h-10 bg-indigo-600 rounded-full"></span>
-          Confidentialité
-        </h1>
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="bg-white p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8 border-b pb-4">Politique de Confidentialité</h1>
         
         <div className="space-y-8 text-gray-700">
           <section>
@@ -49,8 +46,8 @@ export default function PrivacyPolicy() {
             </p>
           </section>
 
-          <div className="mt-12 pt-8 border-t border-gray-100 text-center">
-            <Link to="/" className="text-indigo-600 hover:text-indigo-700 font-black uppercase tracking-widest text-xs">
+          <div className="mt-12 pt-6 border-t border-gray-200 text-center">
+            <Link to="/" className="text-emerald-600 hover:text-emerald-700 font-medium">
               ← Retour à l'accueil
             </Link>
           </div>

@@ -22,15 +22,15 @@
   .container-max {
     @apply max-w-7xl mx-auto;
   }
-  .bg-mesh-premium {
-    background-color: #4f46e5;
+  .bg-mesh-emerald {
+    background-color: #059669;
     background-image: 
-      radial-gradient(at 0% 0%, #6366f1 0px, transparent 50%),
-      radial-gradient(at 50% 0%, #3b82f6 0px, transparent 50%),
-      radial-gradient(at 100% 0%, #4f46e5 0px, transparent 50%),
-      radial-gradient(at 0% 100%, #312e81 0px, transparent 50%),
-      radial-gradient(at 50% 100%, #1e1b4b 0px, transparent 50%),
-      radial-gradient(at 100% 100%, #4338ca 0px, transparent 50%);
+      radial-gradient(at 0% 0%, #10b981 0px, transparent 50%),
+      radial-gradient(at 50% 0%, #34d399 0px, transparent 50%),
+      radial-gradient(at 100% 0%, #059669 0px, transparent 50%),
+      radial-gradient(at 0% 100%, #10b981 0px, transparent 50%),
+      radial-gradient(at 50% 100%, #064e3b 0px, transparent 50%),
+      radial-gradient(at 100% 100%, #10b981 0px, transparent 50%);
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;
@@ -41,14 +41,4 @@
   0% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
   100% { transform: translateY(0px); }
-}
-
-@keyframes shine {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  50% { transform: translateX(200%) skewX(-15deg); }
-  100% { transform: translateX(200%) skewX(-15deg); }
-}
-
-.animate-shine {
-  animation: shine 3s infinite;
 }

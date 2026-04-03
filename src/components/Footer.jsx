@@ -7,13 +7,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Section 1 : Advantages */}
           <div>
-            <h3 className="text-lg font-black text-gray-900 mb-4 uppercase tracking-tighter">Pourquoi nous ?</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Pourquoi utiliser ce site ?</h3>
             <ul className="space-y-3 text-sm text-gray-600 font-medium">
               <li className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> Primes vérifiées
+                <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> Gagnez de l'argent facilement
               </li>
               <li className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7z" /></svg> Accès 100% gratuit
+                <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8V7z" /></svg> Offres fiables et vérifiées
+              </li>
+              <li className="flex items-center gap-2">
+                <svg className="w-5 h-5 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> Simple et rapide
               </li>
             </ul>
           </div>
@@ -28,15 +31,15 @@ export default function Footer() {
 
           {/* Section 3 : Links */}
           <div>
-            <h3 className="text-lg font-black text-gray-900 mb-4 uppercase tracking-tighter">Légal</h3>
+            <h3 className="text-lg font-bold text-gray-900 mb-4">Liens pratiques</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/mentions-legales" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">
+                <Link to="/mentions-legales" className="text-gray-600 hover:text-emerald-600 transition-colors">
                   Mentions légales
                 </Link>
               </li>
               <li>
-                <Link to="/confidentialite" className="text-gray-600 hover:text-indigo-600 transition-colors font-medium">
+                <Link to="/confidentialite" className="text-gray-600 hover:text-emerald-600 transition-colors">
                   Politique de confidentialité
                 </Link>
               </li>
@@ -44,12 +47,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <Link to="/" className="flex items-center gap-0.5 group">
-            <span className="text-sm font-black tracking-tighter text-indigo-600">MONEY</span>
-            <span className="text-sm font-black tracking-tighter text-gray-900 group-hover:text-indigo-600 transition-colors">GAGNANT</span>
-          </Link>
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">&copy; {new Date().getFullYear()} Tous droits réservés.</p>
+        <div className="border-t border-gray-200 mt-10 pt-6 text-center text-sm text-gray-500">
+          <p>&copy; {new Date().getFullYear()} Parrainage. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
