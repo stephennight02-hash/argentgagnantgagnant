@@ -142,7 +142,14 @@ export default function Home() {
                   <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600">💳</div>
                   <div>
                     <h4 className="font-bold text-gray-900">Zéro Frais</h4>
-                    <p className="text-gray-600 text-sm">Notre service est et restera toujours gratuit.</p>
+                    <p className="text-gray-600 text-sm">Notre service est gratuit et vous pouvez clôturer vos comptes à tout moment sans frais.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600">💰</div>
+                  <div>
+                    <h4 className="font-bold text-gray-900">Offres Cumulables</h4>
+                    <p className="text-gray-600 text-sm">Cumulez autant d'offres que vous voulez. Il n'y a aucune limite pour maximiser vos gains.</p>
                   </div>
                 </div>
               </div>
@@ -179,8 +186,9 @@ export default function Home() {
           </div>
           <div className="space-y-4">
             {[
-              { q: "Est-ce vraiment gratuit ?", a: "Oui, nous ne prenons aucune commission sur vos gains. Les primes sont versées directement par les partenaires." },
-              { q: "Comment gagnez-vous de l'argent ?", a: "Nous touchons parfois une commission de la part des banques pour leur avoir apporté un nouveau client, mais cela ne change rien à votre prime." },
+              { q: "Puis-je ouvrir plusieurs comptes en banque ?", a: "Absolument ! Vous avez le droit d'ouvrir autant de comptes que vous le souhaitez pour cumuler les primes. Toutes les offres présentes sur le site sont cumulables entre elles." },
+              { q: "Y a-t-il des frais de clôture ?", a: "Non, la loi française oblige les banques à permettre la clôture d'un compte gratuitement et à tout moment. Vous pouvez donc empocher la prime et fermer le compte ensuite si vous ne l'utilisez plus." },
+              { q: "Est-ce vraiment gratuit ?", a: "Oui, nous ne prenons aucune commission sur vos gains. Les primes sont versées directement par les partenaires sur votre nouveau compte." },
               { q: "Les offres sont-elles sûres ?", a: "Oui, nous ne sélectionnons que des partenaires régulés par l'ACPR (Banque de France) ou des autorités financières reconnues." }
             ].map((faq, i) => (
               <details key={i} className="bg-gray-50 p-6 rounded-2xl border border-gray-100 group cursor-pointer hover:border-emerald-200 transition-colors">
