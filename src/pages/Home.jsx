@@ -43,7 +43,7 @@ export default function Home() {
               .sort((a, b) => (b.rewardValue || 0) - (a.rewardValue || 0))
               .slice(0, 8)
               .map((offer, index) => (
-                <OfferCard key={`top-${index}`} offer={offer} hideCode={true} />
+                <OfferCard key={`top-${index}`} offer={offer} />
               ))}
           </div>
         </div>
@@ -104,7 +104,7 @@ export default function Home() {
               <div className="border-t-2 border-gray-100 mb-6"></div>
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {categoryOffers.slice(0, 4).map((offer, index) => (
-                  <OfferCard key={`${category}-${index}`} offer={offer} hideCode={true} />
+                  <OfferCard key={`${category}-${index}`} offer={offer} />
                 ))}
               </div>
             </div>
