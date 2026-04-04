@@ -171,7 +171,7 @@ export default function Home() {
                   <div className="w-12 h-12 bg-white rounded-2xl shadow-sm flex items-center justify-center grow-0 shrink-0 text-emerald-600">💰</div>
                   <div>
                     <h4 className="font-bold text-gray-900">Offres Cumulables</h4>
-                    <p className="text-gray-600 text-sm">Cumulez autant d'offres que vous voulez. Il n'y a aucune limite pour maximiser vos gains.</p>
+                    <p className="text-gray-600 text-sm">Cumulez un compte par banque sans limite. Maximisez vos gains dès maintenant.</p>
                   </div>
                 </div>
               </div>
