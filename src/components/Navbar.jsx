@@ -30,13 +30,13 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
+          <div className="hidden lg:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
                 className={clsx(
-                  "px-3 py-2 rounded-md font-medium transition-all duration-300",
+                  "px-2 py-2 rounded-md font-bold transition-all duration-300 text-[11px] uppercase tracking-tighter whitespace-nowrap",
                   isActive(link.path) 
                     ? "text-emerald-600 bg-emerald-50 shadow-sm" 
                     : "text-gray-700 hover:text-emerald-600 hover:bg-emerald-50"
@@ -72,17 +72,11 @@ export default function Navbar() {
                 </svg>
               </a>
 
-              <Link 
-                to="/offres" 
-                className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-2.5 rounded-xl transition-all shadow-lg shadow-emerald-200 hover:shadow-emerald-300 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
-              >
-                Toutes les offres
-              </Link>
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center lg:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)}
               type="button" 
@@ -106,7 +100,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={clsx("md:hidden", isOpen ? "block" : "hidden")} id="mobile-menu">
+      <div className={clsx("lg:hidden", isOpen ? "block" : "hidden")} id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-inner bg-gray-50 border-t border-gray-100">
           {navLinks.map((link) => (
              <Link
@@ -136,13 +130,6 @@ export default function Navbar() {
               </svg>
               Rejoindre Discord
             </a>
-            <Link 
-              to="/offres" 
-              className="block w-full text-center bg-emerald-500 hover:bg-emerald-600 text-white font-black px-5 py-3 rounded-xl transition-colors shadow-lg"
-              onClick={() => setIsOpen(false)}
-            >
-              Voir les offres
-            </Link>
           </div>
         </div>
       </div>

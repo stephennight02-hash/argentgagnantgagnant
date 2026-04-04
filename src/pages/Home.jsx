@@ -23,9 +23,6 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-8 py-3 rounded-2xl transition-all uppercase tracking-widest text-base shadow-2xl shadow-emerald-500/40 hover:-translate-y-1 active:translate-y-0">
-                Voir toutes les offres
-             </a>
              <a href="#faq" className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-8 py-3 rounded-2xl transition-all border-2 border-white/20 text-xs uppercase tracking-widest backdrop-blur-sm">
                 Comment ça marche ?
              </a>
