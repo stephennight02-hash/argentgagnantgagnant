@@ -6,38 +6,50 @@ import ContactForm from '../components/ContactForm';
 export default function Home() {
   return (
     <div className="bg-white">
-      {/* 1. COMPACT HERO SECTION */}
-      <section className="bg-emerald-900 py-10 px-4 sm:px-6 lg:px-8 border-b-4 border-emerald-500">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-white uppercase leading-tight">
-            Les meilleures offres de parrainage, <br className="hidden md:block" />
-            <span className="text-emerald-400">classées par gain réel</span>
+      {/* 1. HERO SECTION - BRANDING & CONVERSION */}
+      <section className="bg-emerald-900 pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b-8 border-emerald-500 relative overflow-hidden">
+        {/* Abstract background blobs for premium feel */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-400 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-600 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-6 text-white uppercase leading-none">
+            Parrainage <span className="text-emerald-400">Gagnant</span>
           </h1>
-          <p className="text-base md:text-lg font-medium text-emerald-100/90 mb-8 max-w-2xl mx-auto">
-            Banques, cashback, brokers et paris sportifs. Conditions résumées, difficulté, délai de versement.
+          <p className="text-lg md:text-2xl font-bold text-emerald-100/90 mb-10 max-w-2xl mx-auto italic">
+            "Inscrivez-vous via nos liens, quelques étapes suivies et gagnez de l'argent simplement."
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-8 py-3.5 rounded-xl transition-all uppercase tracking-wider text-sm shadow-lg shadow-emerald-500/20">
-                Voir les meilleures offres
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-10 py-4 rounded-2xl transition-all uppercase tracking-widest text-lg shadow-2xl shadow-emerald-500/40 hover:-translate-y-1 active:translate-y-0">
+                Voir toutes les offres
              </a>
-             <a href="#faq" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded-xl transition-all border border-white/10 text-sm uppercase tracking-wider">
-                Comment ça marche
+             <a href="#faq" className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-10 py-4 rounded-2xl transition-all border-2 border-white/20 text-sm uppercase tracking-widest backdrop-blur-sm">
+                Comment ça marche ?
              </a>
           </div>
         </div>
       </section>
 
-      {/* 2. THE MONEY WALL (TOP 8) */}
-      <section id="money-wall" className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center mb-8">
-             <div className="flex items-center gap-3">
-                <div className="bg-red-600 text-white px-3 py-1.5 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
-                <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight uppercase">Top 8 des offres les plus rentables</div>
-             </div>
+      {/* 2. PREMIUM FLASH INFO TICKER */}
+      <div className="bg-white border-b border-gray-100 overflow-hidden py-3">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center gap-4">
+            <span className="shrink-0 bg-red-600 text-white px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest italic animate-pulse shadow-sm shadow-red-200">Flash Info</span>
+            <div className="flex-1 overflow-hidden">
+               <div className="whitespace-nowrap font-black text-gray-800 text-sm md:text-base uppercase italic tracking-tight animate-[marquee_20s_linear_infinite]">
+                 🔥 Les primes BoursoBank (220€) et Fortuneo (160€) sont limitées ! Profitez-en avant la fin de la semaine. 🚀 Suis-nous sur Instagram pour ne rater aucun bon plan ! 💸 
+               </div>
+            </div>
           </div>
+        </div>
+      </div>
 
+      {/* 3. THE MONEY WALL (TOP 8) */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {offers
               .sort((a, b) => (b.rewardValue || 0) - (a.rewardValue || 0))

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { getOfferLogo } from '../utils/getLogo';
+import { logOfferClick } from '../utils/analytics';
 
 export default function OfferCard({ offer, hideCode = false }) {
   const {
@@ -14,10 +15,10 @@ export default function OfferCard({ offer, hideCode = false }) {
     difficulty,
   } = offer;
 
-  // Render lightning bolts for difficulty
+  // Render stars for difficulty
   const renderDifficulty = (diff) => {
     let count = 1;
-    if (diff === 'Moyen') count = 2;
+    if (diff === 'Moyenne' || diff === 'Moyen') count = 2;
     if (diff === 'Difficile') count = 3;
     
     return (
@@ -25,11 +26,11 @@ export default function OfferCard({ offer, hideCode = false }) {
         {[...Array(3)].map((_, i) => (
           <svg 
             key={i} 
-            className={clsx("w-3.5 h-3.5", i < count ? "text-yellow-500" : "text-gray-200")} 
+            className={clsx("w-3.5 h-3.5", i < count ? "text-yellow-400" : "text-gray-200")} 
             viewBox="0 0 20 20" 
             fill="currentColor"
           >
-            <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
           </svg>
         ))}
       </span>
@@ -38,7 +39,7 @@ export default function OfferCard({ offer, hideCode = false }) {
 
   return (
     <div
-      className="group relative flex flex-col bg-white rounded-3xl p-5 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 h-full"
+      className="group relative flex flex-col bg-white rounded-3xl p-5 border border-gray-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full overflow-hidden"
     >
       {/* Badge */}
       {featured && offer.rewardValue >= 100 && (
@@ -49,9 +50,15 @@ export default function OfferCard({ offer, hideCode = false }) {
         </div>
       )}
 
-      {/* Header: Logo + Name + Category + Reward */}
-      <div className="flex flex-col items-center text-center mt-2 mb-6">
-        <div className="w-16 h-16 rounded-2xl border border-gray-100 bg-gray-50 flex items-center justify-center p-2 mb-3">
+      {/* Header: Logo + Name + Category + Reward (Clickable) */}
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer nofollow sponsored"
+        onClick={() => logOfferClick(name, category)}
+        className="flex flex-col items-center text-center mt-2 mb-6 hover:opacity-80 transition-opacity"
+      >
+        <div className="w-16 h-16 rounded-2xl border border-gray-100 bg-gray-50 flex items-center justify-center p-2 mb-3 shadow-inner">
           <img
             src={getOfferLogo(offer)}
             alt={`Logo ${name}`}
@@ -78,7 +85,7 @@ export default function OfferCard({ offer, hideCode = false }) {
         <div className="text-2xl font-black text-emerald-600 tracking-tight mt-1">
           Jusqu'à {reward}
         </div>
-      </div>
+      </a>
 
       {/* Factual Info Section */}
       <div className="space-y-0 mb-6 flex-grow">
@@ -130,7 +137,8 @@ export default function OfferCard({ offer, hideCode = false }) {
           href={link}
           target="_blank"
           rel="noopener noreferrer nofollow sponsored"
-          className="w-full bg-emerald-600 text-white font-black py-4 px-6 rounded-xl transition-colors hover:bg-emerald-700 flex items-center justify-center text-sm uppercase tracking-widest text-center"
+          onClick={() => logOfferClick(name, category)}
+          className="w-full bg-emerald-600 text-white font-black py-4 px-6 rounded-xl transition-all hover:bg-emerald-700 hover:shadow-lg hover:shadow-emerald-200 active:scale-95 flex items-center justify-center text-sm uppercase tracking-widest text-center"
         >
           Activer l'offre
         </a>

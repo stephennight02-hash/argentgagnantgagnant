@@ -116,15 +116,29 @@ export default function ChatWidget() {
         isRead: false
       });
 
+      // 4. Auto-reply logic (if first user message in this session)
+      const userMsgs = messages.filter(m => m.sender === 'user');
+      if (userMsgs.length === 0) {
+        setTimeout(async () => {
+          await addDoc(collection(db, 'messages'), {
+            chatId: visitorId,
+            text: "Bonjour ! Nous avons bien reçu votre message. Un conseiller va vous répondre sous un maximum de 2h. 😊",
+            sender: 'admin',
+            timestamp: serverTimestamp(),
+            isRead: false
+          });
+        }, 1500);
+      }
+
       // 3. Notify Discord
       try {
         await fetch(DISCORD_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: `@rescuetime 📨 **Nouveau message d'un client !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://parrainageargentgagnant.fr/admin-chat)`,
+            content: `@everyone 📨 **Nouveau message sur Parrainage Gagnant !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://www.parrainagegagnant.fr/admin-chat)`,
             username: "Support Parrainage Gagnant",
-            avatar_url: "https://parrainageargentgagnant.fr/Money_Face_Emoji.png"
+            avatar_url: "https://www.parrainagegagnant.fr/Money_Face_Emoji.png"
           })
         });
       } catch (err) {
@@ -236,30 +250,42 @@ export default function ChatWidget() {
       </div>
 
       {/* Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={clsx(
-          "w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 hover:scale-110 relative",
-          isOpen ? "bg-gray-900 rotate-90" : "bg-emerald-600"
-        )}
-      >
-        {isOpen ? (
-          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
-          <div className="relative">
-            <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-            </svg>
-            {unreadCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-emerald-600 animate-bounce">
-                {unreadCount}
-              </span>
-            )}
+      <div className="flex flex-col items-end gap-3">
+        {!isOpen && (
+          <div className="bg-white px-4 py-2 rounded-2xl shadow-xl border border-emerald-100 animate-bounce transition-all duration-500 origin-bottom-right">
+             <span className="text-emerald-700 font-extrabold text-xs uppercase tracking-wider">Besoin d'aide ? 💬</span>
           </div>
         )}
-      </button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={clsx(
+            "w-20 h-20 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 hover:scale-110 active:scale-90 relative overflow-hidden group",
+            isOpen ? "bg-gray-900 rotate-90" : "bg-emerald-600 hover:bg-emerald-500"
+          )}
+        >
+          {isOpen ? (
+            <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <div className="relative">
+              <svg className="w-10 h-10 text-white transition-transform group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              {unreadCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[11px] font-black w-7 h-7 rounded-full flex items-center justify-center border-4 border-emerald-600 animate-pulse">
+                  {unreadCount}
+                </span>
+              )}
+            </div>
+          )}
+          
+          {/* Subtle pulse ring around the button when inactive */}
+          {!isOpen && (
+            <div className="absolute inset-0 rounded-full border-4 border-emerald-400 opacity-20 animate-ping"></div>
+          )}
+        </button>
+      </div>
     </div>
   );
 }
