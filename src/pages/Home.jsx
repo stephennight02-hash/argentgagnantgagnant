@@ -34,7 +34,7 @@ export default function Home() {
               <span className="text-3xl group-hover:scale-110 transition-transform">🔥</span>
               <div className="text-left">
                 <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.2em] mb-1">Illimité</div>
-                <div className="text-white font-bold text-sm leading-tight">Ouvrez autant de comptes que vous voulez.</div>
+                <div className="text-white font-bold text-sm leading-tight">Possédez un compte par banque sans limite.</div>
               </div>
             </div>
             <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors group">
