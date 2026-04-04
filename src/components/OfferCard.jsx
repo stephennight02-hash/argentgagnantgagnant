@@ -43,9 +43,9 @@ export default function OfferCard({ offer, hideCode = false }) {
     >
       {/* Badge */}
       {featured && offer.rewardValue >= 100 && (
-        <div className="absolute -top-3 left-6">
-          <div className="bg-gray-900 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-wider">
-            Top Rentable
+        <div className="absolute top-0 right-0">
+          <div className="bg-red-600 text-white text-[10px] font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest flex items-center gap-1 shadow-lg shadow-red-200">
+            <span className="animate-pulse">🔥</span> Top Rentable
           </div>
         </div>
       )}
