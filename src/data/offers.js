@@ -79,7 +79,7 @@ export const offers = [
   {
     name: "Betclic",
     category: "paris",
-    reward: "30€",
+    reward: "30€ (Cumulable en + du bonus de bienvenue)",
     rewardValue: 30,
     link: "https://go.onelink.me/2887093520/6c3132b8?af_sub5=BETCK14T",
     domain: "betclic.fr",
@@ -94,7 +94,7 @@ export const offers = [
   {
     name: "Winamax",
     category: "paris",
-    reward: "20€ offerts",
+    reward: "20€ offerts (Cumulable en + du bonus de bienvenue)",
     rewardValue: 20,
     link: "https://winamax.fr",
     domain: "winamax.fr",
@@ -108,7 +108,7 @@ export const offers = [
   {
     name: "Unibet",
     category: "paris",
-    reward: "30€",
+    reward: "30€ (Cumulable en + du bonus de bienvenue)",
     rewardValue: 30,
     link: "https://www.unibet.fr/myaccount/register.html?promo=RBCRR",
     domain: "unibet.fr",
@@ -149,7 +149,7 @@ export const offers = [
   {
     name: "PMU",
     category: "paris",
-    reward: "10€",
+    reward: "10€ (Cumulable en + du bonus de bienvenue)",
     rewardValue: 10,
     link: "https://pmu.fr/turf/static/offre-parrainage/?codeParrainage=659781728",
     domain: "pmu.fr",
@@ -241,7 +241,7 @@ export const offers = [
   {
     name: "CoinPoker (mathestarz)",
     category: "paris",
-    reward: "Bonus + 15% Rakeback",
+    reward: "Bonus + 15% Rakeback (Cumulable en + du bonus de bienvenue)",
     rewardValue: 100,
     link: "https://coinpoker.com",
     domain: "coinpoker.com",
@@ -449,7 +449,7 @@ export const offers = [
   {
     name: "ZEturf",
     category: "paris",
-    reward: "10€ offerts",
+    reward: "10€ offerts (Cumulable en + du bonus de bienvenue)",
     rewardValue: 10,
     link: "https://zeturf.fr",
     domain: "zeturf.fr",
