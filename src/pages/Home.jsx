@@ -22,13 +22,38 @@ export default function Home() {
             "Inscrivez-vous via nos liens, quelques étapes suivies et gagnez de l'argent simplement."
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
              <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-10 py-4 rounded-2xl transition-all uppercase tracking-widest text-lg shadow-2xl shadow-emerald-500/40 hover:-translate-y-1 active:translate-y-0">
                 Voir toutes les offres
              </a>
              <a href="#faq" className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-10 py-4 rounded-2xl transition-all border-2 border-white/20 text-sm uppercase tracking-widest backdrop-blur-sm">
                 Comment ça marche ?
              </a>
+          </div>
+
+          {/* New Trust Banner */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto pt-8 border-t border-white/10">
+            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors group">
+              <span className="text-3xl group-hover:scale-110 transition-transform">🔥</span>
+              <div className="text-left">
+                <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.2em] mb-1">Illimité</div>
+                <div className="text-white font-bold text-sm leading-tight">Ouvrez autant de comptes que vous voulez.</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors group">
+              <span className="text-3xl group-hover:scale-110 transition-transform">💳</span>
+              <div className="text-left">
+                <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.2em] mb-1">Gratuit</div>
+                <div className="text-white font-bold text-sm leading-tight">Aucun frais caché ou service payant.</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors group">
+              <span className="text-3xl group-hover:scale-110 transition-transform">🔓</span>
+              <div className="text-left">
+                <div className="text-emerald-400 font-black text-xs uppercase tracking-[0.2em] mb-1">Sans Engagement</div>
+                <div className="text-white font-bold text-sm leading-tight">Clôture gratuite à tout moment, sans frais.</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
