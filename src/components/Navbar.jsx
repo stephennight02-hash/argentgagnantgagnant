@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: 'Paris Sportifs', path: '/paris-sportifs' },
     { name: 'Services', path: '/services' },
     { name: 'Cashback', path: '/cashback' },
+    { name: 'Partenariats', path: '/partenariats' },
     { name: 'Blog', path: '/blog' }
   ];
 
@@ -23,7 +24,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-black text-gray-900 flex items-center gap-2 hover:text-emerald-600 transition-colors uppercase tracking-tighter">
-              <img src="/Money_Face_Emoji.png" alt="Logo Parrainage Gagnant" className="w-8 h-8 object-contain" /> Parrainage Gagnant
+              <img src="/logo.png" alt="Logo Parrainage Gagnant" className="w-10 h-10 object-contain" />
+              <span>Parrainage<span className="text-emerald-600 font-black">Gagnant</span></span>
             </Link>
           </div>
 

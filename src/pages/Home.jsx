@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* 1. HERO SECTION - BRANDING & CONVERSION */}
-      <section className="bg-emerald-900 pt-16 pb-20 px-4 sm:px-6 lg:px-8 border-b-8 border-emerald-500 relative overflow-hidden">
+      <section className="bg-emerald-900 pt-8 pb-10 px-4 sm:px-6 lg:px-8 border-b-8 border-emerald-500 relative overflow-hidden">
         {/* Abstract background blobs for premium feel */}
         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
           <div className="absolute top-10 left-10 w-96 h-96 bg-emerald-400 rounded-full blur-[120px]"></div>
@@ -15,18 +15,18 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl md:text-7xl font-black tracking-tighter mb-6 text-white uppercase leading-none">
+          <h1 className="text-3xl md:text-5xl font-black tracking-tighter mb-4 text-white uppercase leading-none">
             Parrainage <span className="text-emerald-400">Gagnant</span>
           </h1>
-          <p className="text-lg md:text-2xl font-bold text-emerald-100/90 mb-10 max-w-2xl mx-auto italic">
+          <p className="text-base md:text-xl font-bold text-emerald-100/90 mb-8 max-w-xl mx-auto italic">
             "Inscrivez-vous via nos liens, quelques étapes suivies et gagnez de l'argent simplement."
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-12">
-             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-10 py-4 rounded-2xl transition-all uppercase tracking-widest text-lg shadow-2xl shadow-emerald-500/40 hover:-translate-y-1 active:translate-y-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-8 py-3 rounded-2xl transition-all uppercase tracking-widest text-base shadow-2xl shadow-emerald-500/40 hover:-translate-y-1 active:translate-y-0">
                 Voir toutes les offres
              </a>
-             <a href="#faq" className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-10 py-4 rounded-2xl transition-all border-2 border-white/20 text-sm uppercase tracking-widest backdrop-blur-sm">
+             <a href="#faq" className="w-full sm:w-auto bg-white/5 hover:bg-white/10 text-white font-bold px-8 py-3 rounded-2xl transition-all border-2 border-white/20 text-xs uppercase tracking-widest backdrop-blur-sm">
                 Comment ça marche ?
              </a>
           </div>

@@ -243,8 +243,8 @@ export default function ChatWidget() {
               </svg>
             </button>
           </form>
-          <p className="text-[9px] text-center text-gray-300 font-bold uppercase tracking-widest mt-3">
-            Propulsé par Parrainage Gagnant Support
+          <p className="text-[9px] text-center text-gray-300 font-bold uppercase tracking-widest mt-3 underline decoration-emerald-500/30">
+            Un humain vous répond en direct live 👨‍💻
           </p>
         </div>
       </div>
@@ -253,7 +253,7 @@ export default function ChatWidget() {
       <div className="flex flex-col items-end gap-3">
         {!isOpen && (
           <div className="bg-white px-4 py-2 rounded-2xl shadow-xl border border-emerald-100 animate-bounce transition-all duration-500 origin-bottom-right">
-             <span className="text-emerald-700 font-extrabold text-xs uppercase tracking-wider">Besoin d'aide ? 💬</span>
+             <span className="text-emerald-700 font-extrabold text-xs uppercase tracking-wider">Tchat EN DIRECT LIVE ⚡</span>
           </div>
         )}
         <button

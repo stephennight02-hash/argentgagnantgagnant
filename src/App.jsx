@@ -13,6 +13,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import AllOffers from './pages/AllOffers';
 import ChatWidget from './components/ChatWidget';
 import AdminChat from './pages/AdminChat';
+import Partnerships from './pages/Partnerships';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/mentions-legales" element={<LegalNotice />} />
             <Route path="/confidentialite" element={<PrivacyPolicy />} />
+            <Route path="/partenariats" element={<Partnerships />} />
             {/* Redirect old crypto page to banque */}
             <Route path="/crypto" element={<Navigate to="/banque" replace />} />
           </Routes>

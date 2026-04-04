@@ -39,16 +39,26 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/confidentialite" className="text-gray-600 hover:text-emerald-600 transition-colors">
+                <Link to="/confidentialite" className="text-gray-600 hover:text-emerald-600 transition-colors uppercase tracking-widest text-[10px] font-black">
                   Politique de confidentialité
                 </Link>
+              </li>
+              <li>
+                <Link to="/partenariats" className="text-emerald-600 hover:text-emerald-700 transition-colors uppercase tracking-widest text-[10px] font-black underline underline-offset-4">
+                  Partenariats 🤝
+                </Link>
+              </li>
+              <li>
+                <a href="mailto:contact@parrainagegagnant.fr" className="text-gray-600 hover:text-emerald-600 transition-colors text-xs font-bold">
+                  contact@parrainagegagnant.fr
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-200 mt-10 pt-6 text-center text-sm text-gray-500">
-          <p>&copy; {new Date().getFullYear()} Parrainage. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Parrainage Gagnant. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

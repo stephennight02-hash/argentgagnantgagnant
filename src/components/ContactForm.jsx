@@ -41,8 +41,9 @@ export default function ContactForm() {
   return (
     <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm relative overflow-hidden max-w-2xl mx-auto mt-12 mb-12">
       <div className="text-center mb-8">
-        <h3 className="text-2xl font-black text-gray-900 mb-2">Besoin d'aide ? 💬</h3>
-        <p className="text-gray-500">Contactez-nous directement, nous vous répondrons sur Discord au plus vite.</p>
+        <h3 className="text-2xl font-black text-gray-900 mb-2 underline decoration-emerald-500/30">BESOIN D'AIDE EN DIRECT ? ⚡</h3>
+        <p className="text-gray-500 font-bold italic">Contactez-nous via ce formulaire (Discord) ou par email :</p>
+        <a href="mailto:contact@parrainagegagnant.fr" className="text-emerald-700 font-black hover:underline text-lg">contact@parrainagegagnant.fr</a>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
