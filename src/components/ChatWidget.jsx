@@ -4,7 +4,6 @@ import {
   addDoc, 
   query, 
   where, 
-  orderBy, 
   onSnapshot, 
   serverTimestamp,
   doc,
@@ -32,7 +31,6 @@ export default function ChatWidget() {
       localStorage.setItem('chatVisitorId', id);
     }
     setVisitorId(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Listen for messages
@@ -80,7 +78,6 @@ export default function ChatWidget() {
         unreadByUser: 0
       }).catch(() => {});
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, visitorId]);
 
   // Scroll to bottom
@@ -126,7 +123,7 @@ export default function ChatWidget() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             content: `@rescuetime 📨 **Nouveau message d'un client !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://parrainageargentgagnant.fr/admin-chat)`,
-            username: "Support MoneyGagnant",
+            username: "Support Parrainage Gagnant",
             avatar_url: "https://parrainageargentgagnant.fr/Money_Face_Emoji.png"
           })
         });
@@ -149,10 +146,10 @@ export default function ChatWidget() {
         {/* Header */}
         <div className="bg-white border-b border-gray-100 p-5 flex items-center gap-3">
           <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 font-black shrink-0">
-            MG
+            PG
           </div>
           <div className="text-left">
-            <h3 className="text-sm font-black text-gray-900 leading-tight">Support MoneyGagnant</h3>
+            <h3 className="text-sm font-black text-gray-900 leading-tight">Support Parrainage Gagnant</h3>
             <div className="flex items-center gap-1.5">
               <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
               <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">En ligne</span>
@@ -233,7 +230,7 @@ export default function ChatWidget() {
             </button>
           </form>
           <p className="text-[9px] text-center text-gray-300 font-bold uppercase tracking-widest mt-3">
-            Propulsé par MoneyGagnant Support
+            Propulsé par Parrainage Gagnant Support
           </p>
         </div>
       </div>

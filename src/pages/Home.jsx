@@ -6,43 +6,35 @@ import ContactForm from '../components/ContactForm';
 export default function Home() {
   return (
     <div className="bg-white">
-      {/* 1. COMPACT MODERN HERO */}
-      <section className="relative overflow-hidden bg-mesh-emerald py-12 md:py-16 px-4 sm:px-6 lg:px-8">
-        {/* Abstract decorative elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-400/20 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="animate-float backdrop-blur-xl bg-white/5 border border-white/10 rounded-[2rem] p-6 md:p-10 shadow-2xl text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-4 text-white uppercase leading-none">
-              Encaissez vos <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-white italic">Primes Cash</span> 💸
-            </h1>
-            <p className="text-lg md:text-xl font-bold text-emerald-50/90 mb-6 max-w-xl mx-auto leading-tight">
-              La sélection d'élite des parrainages les plus lucratifs du Web. 
-              <span className="block mt-1 font-black text-white">Vérifié. Immédiat. Garanti.</span>
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-4">
-               <div className="flex items-center gap-2 bg-emerald-900/40 px-4 py-2 rounded-xl border border-white/10 text-xs font-black text-white">
-                  💰 +2,500€ À SAISIR
-               </div>
-               <div className="flex items-center gap-2 bg-emerald-400/20 px-4 py-2 rounded-xl border border-white/10 backdrop-blur-sm text-xs font-black text-white">
-                  🛡️ 100% SÉCURISÉ
-               </div>
-            </div>
+      {/* 1. COMPACT HERO SECTION */}
+      <section className="bg-emerald-900 py-10 px-4 sm:px-6 lg:px-8 border-b-4 border-emerald-500">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-white uppercase leading-tight">
+            Les meilleures offres de parrainage, <br className="hidden md:block" />
+            <span className="text-emerald-400">classées par gain réel</span>
+          </h1>
+          <p className="text-base md:text-lg font-medium text-emerald-100/90 mb-8 max-w-2xl mx-auto">
+            Banques, cashback, brokers et paris sportifs. Conditions résumées, difficulté, délai de versement.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+             <a href="#offres" className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-400 text-white font-black px-8 py-3.5 rounded-xl transition-all uppercase tracking-wider text-sm shadow-lg shadow-emerald-500/20">
+                Voir les meilleures offres
+             </a>
+             <a href="#faq" className="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded-xl transition-all border border-white/10 text-sm uppercase tracking-wider">
+                Comment ça marche
+             </a>
           </div>
         </div>
       </section>
 
       {/* 2. THE MONEY WALL (TOP 8) */}
-      <section id="money-wall" className="pt-8 md:pt-10 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
+      <section id="money-wall" className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center mb-10">
+          <div className="flex items-center mb-8">
              <div className="flex items-center gap-3">
-                <div className="bg-red-600 text-white px-4 py-2 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
-                <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight">TOP 8 DES OFFRES LES PLUS RENTABLES</div>
+                <div className="bg-red-600 text-white px-3 py-1.5 rounded-lg font-black text-xs uppercase italic animate-pulse">FLASH INFO :</div>
+                <div className="text-gray-900 font-black text-lg md:text-xl tracking-tight uppercase">Top 8 des offres les plus rentables</div>
              </div>
           </div>
 
@@ -51,7 +43,7 @@ export default function Home() {
               .sort((a, b) => (b.rewardValue || 0) - (a.rewardValue || 0))
               .slice(0, 8)
               .map((offer, index) => (
-                <OfferCard key={`top-${index}`} offer={offer} />
+                <OfferCard key={`top-${index}`} offer={offer} hideCode={true} />
               ))}
           </div>
         </div>
@@ -112,7 +104,7 @@ export default function Home() {
               <div className="border-t-2 border-gray-100 mb-6"></div>
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {categoryOffers.slice(0, 4).map((offer, index) => (
-                  <OfferCard key={`${category}-${index}`} offer={offer} />
+                  <OfferCard key={`${category}-${index}`} offer={offer} hideCode={true} />
                 ))}
               </div>
             </div>
@@ -167,7 +159,7 @@ export default function Home() {
       </section>
 
       {/* 5. FAQ SECTION */}
-      <section className="py-20 bg-white px-4 sm:px-6 lg:px-8 border-t border-gray-200">
+      <section id="faq" className="py-20 bg-white px-4 sm:px-6 lg:px-8 border-t border-gray-200">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Questions fréquentes</h2>

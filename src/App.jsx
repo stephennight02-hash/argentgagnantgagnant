@@ -22,7 +22,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/admin-support-prive" element={<AdminChat />} />
+            <Route path="/admin-chat" element={<AdminChat />} />
             <Route path="/offres" element={<AllOffers />} />
             <Route path="/banque" element={<Banque />} />
             <Route path="/paris-sportifs" element={<ParisSportifs />} />
