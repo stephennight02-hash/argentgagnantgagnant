@@ -11,6 +11,7 @@ import {
   updateDoc
 } from 'firebase/firestore';
 import { db } from '../firebase';
+import { getVisitorIp } from '../utils/ip';
 import clsx from 'clsx';
 
 const DISCORD_WEBHOOK_URL = 'https://canary.discord.com/api/webhooks/1488979546358288558/nEXIe7lNQ2K8dtPBc5dnsO9-y1JEM_RbTtGh4m_m-3IdbvHbHS6CzMbmoZw8_mZ7HwmM';
@@ -101,15 +102,8 @@ export default function ChatWidget() {
     setNewMessage('');
 
     try {
-      // Fetch visitor IP (best effort)
-      let visitorIp = 'N/A';
-      try {
-        const res = await fetch('https://api.ipify.org?format=json');
-        const data = await res.json();
-        visitorIp = data.ip;
-      } catch (e) {
-        console.error('IP Fetch Error:', e);
-      }
+      // Fetch visitor IP using the shared utility
+      const visitorIp = await getVisitorIp();
 
       // 1. Create/Update Chat Summary (with IP)
       await setDoc(doc(db, 'chats', visitorId), {

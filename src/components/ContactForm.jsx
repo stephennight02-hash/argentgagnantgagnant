@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getVisitorIp } from '../utils/ip';
 
 export default function ContactForm() {
   const [discordUsername, setDiscordUsername] = useState('');
@@ -14,13 +15,16 @@ export default function ContactForm() {
     const webhookUrl = "https://canary.discord.com/api/webhooks/1488979546358288558/nEXIe7lNQ2K8dtPBc5dnsO9-y1JEM_RbTtGh4m_m-3IdbvHbHS6CzMbmoZw8_mZ7HwmM";
     
     try {
+      const ip = await getVisitorIp();
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          content: `📬 **Nouveau message de contact**\n\n**Discord :** \`${discordUsername}\`\n**Raison :**\n${reason}`
+          content: `📬 **Nouveau message de contact**\n\n**Discord :** \`${discordUsername}\`\n**IP :** \`${ip}\`\n**Raison :**\n${reason}`,
+          username: "Contact Parrainage Gagnant",
+          avatar_url: "https://www.parrainagegagnant.fr/logo/icons/icon-512.png"
         }),
       });
 

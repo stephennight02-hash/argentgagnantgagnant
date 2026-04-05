@@ -4,20 +4,14 @@ import {
   serverTimestamp 
 } from 'firebase/firestore';
 import { db } from '../firebase';
+import { getVisitorIp } from './ip';
 
 export const logOfferClick = async (offerName, category) => {
   try {
     const visitorId = localStorage.getItem('chatVisitorId') || 'anonymous';
     
-    // Fetch IP (optional/best effort)
-    let ip = 'N/A';
-    try {
-      const res = await fetch('https://api.ipify.org?format=json');
-      const data = await res.json();
-      ip = data.ip;
-    } catch (e) {
-      console.error('IP Fetch Error:', e);
-    }
+    // Fetch IP using the shared utility
+    const ip = await getVisitorIp();
 
     await addDoc(collection(db, 'clicks'), {
       offerName,
