@@ -292,50 +292,110 @@ export default function AdminChat() {
             </div>
           </>
         ) : (
-          <div className="flex-1 overflow-y-auto p-10 bg-gray-50">
-            <div className="max-w-4xl mx-auto">
+          <div className="flex-1 overflow-y-auto p-10 bg-gray-50 custom-scrollbar">
+            <div className="max-w-5xl mx-auto">
               <div className="flex items-center justify-between mb-10">
                 <div>
                   <h2 className="text-4xl font-black text-gray-900 uppercase tracking-tighter italic">Tableau de Bord</h2>
-                  <p className="text-gray-400 font-bold uppercase tracking-widest text-sm mt-1">Analyse des clics et de l'engagement</p>
+                  <p className="text-gray-400 font-bold uppercase tracking-widest text-sm mt-1">Analyse des clics et de l'engagement en direct</p>
                 </div>
-                <div className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col items-center">
-                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">Total Clics</span>
-                  <span className="text-4xl font-black text-emerald-600">{clicks.length}</span>
+                <div className="flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-full">
+                  <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                  <span className="text-[10px] font-black uppercase tracking-widest">Mise à jour live</span>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* KPI Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:border-emerald-200 transition-all">
+                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Total Clics</span>
+                  <span className="text-5xl font-black text-emerald-600 group-hover:scale-110 transition-transform">{clicks.length}</span>
+                  <div className="mt-4 w-12 h-1.5 bg-emerald-50 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 w-full animate-pulse"></div>
+                  </div>
+                </div>
+                
+                <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:border-blue-200 transition-all">
+                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Conversations</span>
+                  <span className="text-5xl font-black text-blue-600 group-hover:scale-110 transition-transform">{chats.length}</span>
+                  <div className="mt-4 w-12 h-1.5 bg-blue-50 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500 w-2/3"></div>
+                  </div>
+                </div>
+
+                <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center group hover:border-purple-200 transition-all">
+                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-2">Visiteurs Uniques</span>
+                  <span className="text-5xl font-black text-purple-600 group-hover:scale-110 transition-transform">
+                    {new Set(clicks.map(c => c.visitorId)).size}
+                  </span>
+                  <div className="mt-4 w-12 h-1.5 bg-purple-50 rounded-full overflow-hidden">
+                    <div className="h-full bg-purple-500 w-1/2"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Ranking */}
-                <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-6">Classement des Offres</h3>
-                  <div className="space-y-4">
-                    {getStats().map((stat, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 transition-colors">
-                        <div className="flex items-center gap-4">
-                          <span className="w-6 h-6 flex items-center justify-center bg-gray-900 text-white rounded-lg text-[10px] font-black">{idx + 1}</span>
-                          <span className="font-black text-gray-800">{stat.name}</span>
+                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100">
+                  <div className="flex items-center justify-between mb-8">
+                    <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight">Classement des Offres</h3>
+                    <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full uppercase">Top Performance</span>
+                  </div>
+                  <div className="space-y-3">
+                    {getStats().length === 0 ? (
+                      <p className="text-center py-10 text-gray-400 text-sm font-bold uppercase tracking-widest italic">Aucune donnée pour le moment</p>
+                    ) : (
+                      getStats().slice(0, 10).map((stat, idx) => (
+                        <div key={idx} className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl hover:bg-emerald-50 transition-all hover:translate-x-1">
+                          <div className="flex items-center gap-4">
+                            <span className={clsx(
+                              "w-8 h-8 flex items-center justify-center rounded-xl text-xs font-black shadow-sm",
+                              idx === 0 ? "bg-yellow-400 text-yellow-900" : 
+                              idx === 1 ? "bg-gray-300 text-gray-700" : 
+                              idx === 2 ? "bg-orange-300 text-orange-900" : "bg-gray-900 text-white"
+                            )}>
+                              {idx + 1}
+                            </span>
+                            <span className="font-black text-gray-800 tracking-tight">{stat.name}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                             <div className="h-2 w-24 bg-gray-200 rounded-full overflow-hidden hidden sm:block">
+                               <div 
+                                 className="h-full bg-emerald-500" 
+                                 style={{ width: `${(stat.count / clicks.length) * 100}%` }}
+                               ></div>
+                             </div>
+                             <span className="text-emerald-600 font-black min-w-[30px] text-right">{stat.count}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center gap-2 text-emerald-600 font-black">
-                          <span>{stat.count}</span>
-                          <span className="text-[10px] uppercase tracking-widest">clics</span>
-                        </div>
-                      </div>
-                    ))}
+                      ))
+                    )}
                   </div>
                 </div>
 
                 {/* Recent Activity */}
-                <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col">
-                  <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight mb-6">Journal récent</h3>
-                  <div className="flex-1 space-y-3 overflow-y-auto max-h-[500px] pr-2 custom-scrollbar">
-                    {clicks.slice(0, 50).map((click, idx) => (
-                      <div key={idx} className="text-[11px] font-bold p-3 border-b border-gray-50 flex justify-between uppercase">
-                         <span className="text-gray-400">{click.timestamp?.toDate?.().toLocaleString() || 'Maintenant'}</span>
-                         <span className="text-emerald-700">{click.offerName}</span>
-                         <span className="text-gray-300">#{click.visitorId?.slice(-4)}</span>
-                      </div>
-                    ))}
+                <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 flex flex-col">
+                  <div className="flex items-center justify-between mb-8">
+                    <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight">Journal récent</h3>
+                    <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Temps réel</span>
+                  </div>
+                  <div className="flex-1 space-y-2 overflow-y-auto max-h-[500px] pr-2 custom-scrollbar">
+                    {clicks.length === 0 ? (
+                       <p className="text-center py-10 text-gray-400 text-sm font-bold uppercase tracking-widest italic">En attente de clics...</p>
+                    ) : (
+                      clicks.slice(0, 50).map((click, idx) => (
+                        <div key={idx} className="text-[10px] font-bold p-3 bg-gray-50/50 border-b border-gray-100 flex justify-between uppercase hover:bg-white transition-colors rounded-lg">
+                           <div className="flex flex-col">
+                             <span className="text-gray-400 font-medium">{click.timestamp?.toDate?.().toLocaleTimeString() || 'Maintenant'}</span>
+                             <span className="text-gray-300">#{click.visitorId?.slice(-6) || 'anon'}</span>
+                           </div>
+                           <div className="flex items-center gap-2">
+                             <span className="text-emerald-700 font-black">{click.offerName}</span>
+                             <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
+                           </div>
+                        </div>
+                      ))
+                    )}
                   </div>
                 </div>
               </div>
