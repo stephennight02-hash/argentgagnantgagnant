@@ -24,7 +24,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-black text-gray-900 flex items-center gap-2 hover:text-emerald-600 transition-colors uppercase tracking-tighter">
-              <img src="/logo/icon-primary-1024.png" alt="Logo Parrainage Gagnant" className="w-10 h-10 object-contain" />
+              <img src="/logo/icon-1024.png" alt="Logo Parrainage Gagnant" className="w-10 h-10 object-contain" />
               <span>Parrainage<span className="text-emerald-600 font-black">Gagnant</span></span>
             </Link>
           </div>

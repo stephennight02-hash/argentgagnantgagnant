@@ -156,7 +156,7 @@ export default function ChatWidget() {
           body: JSON.stringify({
             content: `@everyone 📨 **Nouveau message sur Parrainage Gagnant !**\n\n**Visiteur :** \`${visitorId}\`\n**IP :** \`${visitorIp}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://www.parrainagegagnant.fr/admin-chat)`,
             username: "Support Parrainage Gagnant",
-            avatar_url: "https://www.parrainagegagnant.fr/logo/icon-primary-512.png"
+            avatar_url: "https://www.parrainagegagnant.fr/logo/icons/icon-512.png"
           })
         });
       } catch (err) {

@@ -156,7 +156,7 @@ export default function AdminChat() {
       <div className="bg-gray-900 px-6 py-2 flex items-center justify-between border-b border-white/10 shrink-0">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <img src="/logo/icon-primary.svg" alt="Logo" className="w-7 h-7" />
+            <img src="/logo/icon.svg" alt="Logo" className="w-7 h-7" />
             <h2 className="text-sm font-black text-white uppercase tracking-tighter italic">Admin PG</h2>
           </div>
           <div className="flex gap-1">
