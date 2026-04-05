@@ -59,7 +59,7 @@ export default function ChatWidget() {
       // Update unread count if chat is closed
       if (!isOpen) {
         const lastMsg = msgs[msgs.length - 1];
-        if (lastMsg && lastMsg.sender === 'admin' && !lastMsg.isRead) {
+        if (lastMsg && lastMsg.sender === 'admin' && !lastMsg.isRead && !lastMsg.isAutoReply) {
           setUnreadCount(prev => prev + 1);
         }
       }
@@ -125,7 +125,8 @@ export default function ChatWidget() {
             text: "Hello ! Votre demande a bien été prise en compte. Un membre de l'équipe vous répondra personnellement d'ici 2h maximum. ⏳",
             sender: 'admin',
             timestamp: serverTimestamp(),
-            isRead: false
+            isRead: false,
+            isAutoReply: true
           });
         }, 1500);
       }
@@ -138,7 +139,7 @@ export default function ChatWidget() {
           body: JSON.stringify({
             content: `@everyone 📨 **Nouveau message sur Parrainage Gagnant !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://www.parrainagegagnant.fr/admin-chat)`,
             username: "Support Parrainage Gagnant",
-            avatar_url: "https://www.parrainagegagnant.fr/Money_Face_Emoji.png"
+            avatar_url: "https://www.parrainagegagnant.fr/logo/icon-primary-512.png"
           })
         });
       } catch (err) {

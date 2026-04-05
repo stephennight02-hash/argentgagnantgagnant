@@ -146,7 +146,7 @@ export default function AdminChat() {
       <div className="bg-gray-900 px-6 py-2 flex items-center justify-between border-b border-white/10 shrink-0">
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <img src="/Money_Face_Emoji.png" alt="Logo" className="w-6 h-6" />
+            <img src="/logo/icon-primary.svg" alt="Logo" className="w-7 h-7" />
             <h2 className="text-sm font-black text-white uppercase tracking-tighter italic">Admin PG</h2>
           </div>
           <div className="flex gap-1">
@@ -387,7 +387,10 @@ export default function AdminChat() {
                         <div key={idx} className="text-[10px] font-bold p-3 bg-gray-50/50 border-b border-gray-100 flex justify-between uppercase hover:bg-white transition-colors rounded-lg">
                            <div className="flex flex-col">
                              <span className="text-gray-400 font-medium">{click.timestamp?.toDate?.().toLocaleTimeString() || 'Maintenant'}</span>
-                             <span className="text-gray-300">#{click.visitorId?.slice(-6) || 'anon'}</span>
+                             <div className="flex items-center gap-1.5 font-black text-[9px] mt-0.5">
+                                <span className="text-gray-300">#{click.visitorId?.slice(-6) || 'anon'}</span>
+                                {click.ip && <span className="text-emerald-500 bg-emerald-50 px-1 rounded border border-emerald-100">IP: {click.ip}</span>}
+                             </div>
                            </div>
                            <div className="flex items-center gap-2">
                              <span className="text-emerald-700 font-black">{click.offerName}</span>
