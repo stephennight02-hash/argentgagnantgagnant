@@ -56,12 +56,10 @@ export default function ChatWidget() {
       
       setMessages(msgs);
       
-      // Update unread count if chat is closed
+      // Count real unread admin messages (exclude auto-replies)
       if (!isOpen) {
-        const lastMsg = msgs[msgs.length - 1];
-        if (lastMsg && lastMsg.sender === 'admin' && !lastMsg.isRead && !lastMsg.isAutoReply) {
-          setUnreadCount(prev => prev + 1);
-        }
+        const realUnread = msgs.filter(m => m.sender === 'admin' && !m.isRead && !m.isAutoReply).length;
+        setUnreadCount(realUnread);
       }
     }, (error) => {
       console.error('FIREBASE SNAPSHOT ERROR (Visitor):', error.code, error.message);
@@ -77,8 +75,16 @@ export default function ChatWidget() {
       updateDoc(doc(db, 'chats', visitorId), {
         unreadByUser: 0
       }).catch(() => {});
+
+      messages.forEach(msg => {
+        if (msg.sender === 'admin' && !msg.isRead) {
+          updateDoc(doc(db, 'messages', msg.id), { isRead: true }).catch(() => {});
+        }
+      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isOpen, visitorId]);
+
 
   // Scroll to bottom
   useEffect(() => {
@@ -95,12 +101,23 @@ export default function ChatWidget() {
     setNewMessage('');
 
     try {
-      // 1. Create/Update Chat Summary
+      // Fetch visitor IP (best effort)
+      let visitorIp = 'N/A';
+      try {
+        const res = await fetch('https://api.ipify.org?format=json');
+        const data = await res.json();
+        visitorIp = data.ip;
+      } catch (e) {
+        console.error('IP Fetch Error:', e);
+      }
+
+      // 1. Create/Update Chat Summary (with IP)
       await setDoc(doc(db, 'chats', visitorId), {
         chatId: visitorId,
         lastMessage: text,
         timestamp: serverTimestamp(),
         unreadByAdmin: true,
+        visitorIp: visitorIp,
         visitorInfo: {
           userAgent: navigator.userAgent,
           platform: navigator.platform
@@ -116,7 +133,7 @@ export default function ChatWidget() {
         isRead: false
       });
 
-      // 4. Auto-reply logic (if first user message in this session)
+      // 3. Auto-reply logic (if first user message in this session)
       const userMsgs = messages.filter(m => m.sender === 'user');
       if (userMsgs.length === 0) {
         setTimeout(async () => {
@@ -131,13 +148,13 @@ export default function ChatWidget() {
         }, 1500);
       }
 
-      // 3. Notify Discord
+      // 4. Notify Discord
       try {
         await fetch(DISCORD_WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            content: `@everyone 📨 **Nouveau message sur Parrainage Gagnant !**\n\n**Visiteur :** \`${visitorId}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://www.parrainagegagnant.fr/admin-chat)`,
+            content: `@everyone 📨 **Nouveau message sur Parrainage Gagnant !**\n\n**Visiteur :** \`${visitorId}\`\n**IP :** \`${visitorIp}\`\n**Message :** ${text}\n\n[→ Répondre sur le Panel Admin](https://www.parrainagegagnant.fr/admin-chat)`,
             username: "Support Parrainage Gagnant",
             avatar_url: "https://www.parrainagegagnant.fr/logo/icon-primary-512.png"
           })

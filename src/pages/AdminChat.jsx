@@ -140,6 +140,16 @@ export default function AdminChat() {
       .sort((a, b) => b.count - a.count);
   };
 
+  // Auto-mark as read if the chat is currently open and has new messages
+  useEffect(() => {
+    if (selectedChat) {
+      const activeChatData = chats.find(c => c.id === selectedChat.id);
+      if (activeChatData && activeChatData.unreadByAdmin) {
+        markAsRead(activeChatData.id);
+      }
+    }
+  }, [chats, selectedChat]);
+
   return (
     <div className="flex h-[calc(100vh-64px)] bg-gray-50 flex-col">
       {/* Header Tabs */}
@@ -216,7 +226,9 @@ export default function AdminChat() {
                       </div>
 
                       <div>
-                        <h4 className="text-xs font-black text-gray-800 uppercase tracking-tight mb-0.5">Visiteur {chat.id.slice(-6)}</h4>
+                        <h4 className="text-xs font-black text-gray-800 uppercase tracking-tight mb-0.5">
+                          {chat.visitorIp && chat.visitorIp !== 'N/A' ? `Client IP: ${chat.visitorIp}` : `Client ${chat.id.slice(-6).toUpperCase()}`}
+                        </h4>
                         <p className={clsx(
                           "text-sm truncate",
                           chat.unreadByAdmin ? "text-gray-900 font-black" : "text-gray-500 font-medium"
@@ -237,7 +249,9 @@ export default function AdminChat() {
                   {/* Header */}
                   <div className="bg-white p-6 border-b border-gray-200 flex items-center justify-between shadow-sm z-10">
                     <div>
-                      <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight">Conversation with {selectedChat.id}</h3>
+                      <h3 className="text-lg font-black text-gray-900 uppercase tracking-tight">
+                        Conversation avec {selectedChat.visitorIp && selectedChat.visitorIp !== 'N/A' ? selectedChat.visitorIp : `Client ${selectedChat.id.slice(-6).toUpperCase()}`}
+                      </h3>
                       <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-0.5">Visiteur en direct | {selectedChat.visitorInfo?.userAgent?.slice(0, 40)}...</p>
                     </div>
                   </div>
