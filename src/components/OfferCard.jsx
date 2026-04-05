@@ -83,7 +83,7 @@ export default function OfferCard({ offer, hideCode = false }) {
           }[category] || category}
         </span>
         <div className="text-2xl font-black text-emerald-600 tracking-tight mt-1">
-          Jusqu'à {reward}
+          {reward}
         </div>
       </a>
 
