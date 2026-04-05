@@ -122,7 +122,7 @@ export default function ChatWidget() {
         setTimeout(async () => {
           await addDoc(collection(db, 'messages'), {
             chatId: visitorId,
-            text: "Bonjour ! Nous avons bien reçu votre message. Un conseiller va vous répondre sous un maximum de 2h. 😊",
+            text: "Hello ! Votre demande a bien été prise en compte. Un membre de l'équipe vous répondra personnellement d'ici 2h maximum. ⏳",
             sender: 'admin',
             timestamp: serverTimestamp(),
             isRead: false
